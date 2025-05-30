@@ -6,9 +6,11 @@ import SignUp from "./Auth/Signup";
 import Modal from "../components/Modal";
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [openAuthModal, setOpenAuthModal] = useState(true);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [currentPage, setCurrentPage] = useState("login");
-  const handleCTA = () => {};
+  const handleCTA = () => {
+    navigate("/dashboard")
+  };
   return (
     <div className="w-full min-h-full bg-white pb-96">
       <div className="container mx-auto px-4 py-6">
