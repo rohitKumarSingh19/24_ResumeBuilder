@@ -6,9 +6,10 @@ import LoginPage from './pages/Auth/Login';
 import SignUpPage from './pages/Auth/Signup';
 import Dashboard from './pages/Home/Dashboard';
 import EditResume from './pages/ResumeUpdate/EditResume';
+import UserProvider from './context/userContext';
 const App=()=>{
   return (
-    <>
+    <UserProvider>
     <div>
       <Router>
         <Routes>
@@ -28,7 +29,7 @@ const App=()=>{
         },
       }}
     />
-    </>
+    </UserProvider>
   )
 }
 export default App;

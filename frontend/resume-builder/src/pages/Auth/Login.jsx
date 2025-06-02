@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/inputs/Input';
 import { validateEmail } from '../../utils/helper';
+import { UserContext } from '../../context/userContext';
+import axiosInstance from '../../utils/axiosInstance';
+import { API_PATHS } from '../../utils/apiPaths';
 const LoginPage=({setCurrentPage})=>{       
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-    const [error,setError]=useState("");
+    const [error,setError]=useState(null);
+    const {updateUser} =useContext(UserContext);
     const navigate=useNavigate();
     //Handle login form submit
     const handleLogin=async(e)=>{
@@ -21,8 +25,24 @@ const LoginPage=({setCurrentPage})=>{
         setError("");
         //Login Api call
         try{
-
-        }catch(error){}
+            const response=await axiosInstance.post(API_PATHS.AUTH.LOGIN,{
+                email,
+                password
+            });
+            const {token}=response.data;
+            if(token){
+                localStorage.setItem("token",token);
+                updateUser(response.data);
+                navigate("/dashboard");
+            }
+        }catch(error){
+            if(error.response && error.response.data.message){
+                setError(error.response.data.message);
+            }
+            else{
+                setError("Something went wrong.Please try again.")
+            }
+        }
     }
     return(
         <div className='w-[90vw] md:w-[33vw] p-7 flex flex-col justify-center'>
