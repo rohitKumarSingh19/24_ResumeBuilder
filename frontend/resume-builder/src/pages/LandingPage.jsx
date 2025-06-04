@@ -25,7 +25,7 @@ const LandingPage = () => {
           <div className="text-xl font-bold">Resume Builder</div>
           {user?(<ProfileInfoCard/>)
           :(<button
-            className="bg-purple-100 text-sm font-semibold text-black px-7 py-2.5 rounded-lg hover:text-white transition-colors cursor-pointer"
+            className="bg-black  text-sm font-semibold text-white px-7 py-2.5 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer"
             onClick={() => setOpenAuthModal(true)}
           >
             Login/Sign Up
