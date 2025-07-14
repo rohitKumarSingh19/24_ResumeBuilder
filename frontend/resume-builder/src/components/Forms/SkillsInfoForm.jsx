@@ -1,7 +1,8 @@
 import React from "react";
 import Input from '../../components/Inputs/Input';
 import {LuPlus,LuTrash2} from 'react-icons/lu'
-const SkillsInfoForm=(skillsInfo,updateArrayItem,addArrayItem,removeArrayItem)=>{
+import RatingInput from "../ResumeSections/RatingInput";
+const SkillsInfoForm=({skillsInfo,updateArrayItem,addArrayItem,removeArrayItem})=>{
     return(
         <div className="px-5 pt-3">
             <h2 className="text-lg font-semibold text-gray-900">Skills</h2>
@@ -25,7 +26,13 @@ const SkillsInfoForm=(skillsInfo,updateArrayItem,addArrayItem,removeArrayItem)=>
                             Proficiency({skill.progress/20 || 0}/5)
                         </label>
                         <div className="mt-5">
-
+                            <RatingInput
+                            value={skill.progress || 0}
+                            total={5}
+                            onChange={(newValue)=>
+                                updateArrayItem(index,'progress',newValue)
+                            }
+                            />
                         </div>
                     </div>
                     </div>
