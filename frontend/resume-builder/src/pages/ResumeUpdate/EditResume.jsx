@@ -469,7 +469,18 @@ const EditResume = () => {
     }
   };
   //Delete Resume
-  const handleDeleteResume = () => {};
+  const handleDeleteResume = async() => {
+    try{
+      setIsLoading(true);
+      const response=await axiosInstance.delete(API_PATHS.RESUME.DELETE(resumeId));
+      toast.success('Resume Deleted Successfully');
+      navigate('/dashboard')
+    }catch(err){
+      console.error('Error capturing image:',err);
+    }finally{
+      setIsLoading(false)
+    }
+  };
   //Download resume
   const reactToPrintFn = useReactToPrint({ contentRef: resumeDownloadRef });
   //Function to update baseWidth based on the resume container size
