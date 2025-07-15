@@ -583,7 +583,7 @@ const EditResume = () => {
       <Modal
       isOpen={openThemeSelector}
       onClose={()=>setOpenThemeSelector(false)}
-      title='Change Them'
+      title='Change Theme'
       >
         <div className="w-[90vw] h-[80vh]">
           <ThemeSelector
@@ -598,6 +598,22 @@ const EditResume = () => {
           onClose={()=>setOpenThemeSelector(false)}
           />
         </div>
+      </Modal>
+      <Modal 
+      isOpen={openPreviewModal}
+      onClose={()=>setOpenPreviewModal(false)}
+      title={resumeData.title}
+      showActionBtn
+      actionBtnIcon={<LuDownload className="text-[16px]"/>}
+      onActionClick={()=>reactToPrintFn()}
+      >
+        <div ref={resumeDownloadRef} className="w-[98w] h-[90vh]">
+        <RenderResume
+        templateId={resumeData?.template?.theme|| ""}
+        resumeData={resumeData}
+        colorPalette={resumeData?.template?.colorPalette || []}
+        />
+      </div>
       </Modal>
     </DashboardLayout>
   );
