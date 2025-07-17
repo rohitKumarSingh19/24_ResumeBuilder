@@ -1,5 +1,5 @@
- export const BASE_URL="http://localhost:8000";
-// export const BASE_URL='https://two4-resumebuilder-backend.onrender.com/'
+// export const BASE_URL="http://localhost:8000";
+ export const BASE_URL='https://two4-resumebuilder-backend-1.onrender.com/'
 //utils/apiPath.js
 export const API_PATHS={
     AUTH:{
