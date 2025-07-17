@@ -36,7 +36,6 @@ A dynamic Resume Builder web application built with the **MERN Stack** (MongoDB,
 ---
 
 ## 📁 Folder Structure
-
 ResumeBuilder/
 ├── backend/
 │ ├── config/
@@ -54,6 +53,7 @@ ResumeBuilder/
 │ │ ├── pages/
 │ │ └── App.jsx
 └── README.md
+
 
 
 ## 🧪 Installation
