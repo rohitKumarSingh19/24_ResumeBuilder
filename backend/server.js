@@ -16,7 +16,9 @@ app.use(
 );
 //Connect Database
 connectDB();
-
+app.get('/', (req, res) => {
+    res.send('API is working');
+});
 //Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
