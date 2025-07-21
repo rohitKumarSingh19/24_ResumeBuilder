@@ -1,3 +1,7 @@
+Resume-builder
+backend- https://two4-resumebuilder-backend-1.onrender.com/
+client-https://resume-builder-app-2.netlify.app/
+
 # 📝 Resume Builder
 
 A dynamic Resume Builder web application built with the **MERN Stack** (MongoDB, Express.js, React.js, Node.js), styled using **Tailwind CSS**, and powered by **Vite** for faster frontend builds. This tool allows users to:
